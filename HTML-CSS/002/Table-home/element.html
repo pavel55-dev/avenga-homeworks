@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Element Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <div id="element-root" class="element-page">
+      <div class="element-header">
+        <img id="el-image" src="https://via.placeholder.com/180" alt="element image">
+        <div class="element-info">
+          <h2 id="el-title">Element</h2>
+          <div class="meta" id="el-meta"></div>
+          <p id="el-desc"></p>
+        </div>
+      </div>
+      <!-- Navigation intentionally omitted: close the tab to return to the table -->
+    </div>
+  </main>
+
+  <script src="data/elements.js"></script>
+  <script>
+    function qs(name){
+      const params = new URLSearchParams(window.location.search)
+      return params.get(name)
+    }
+
+    async function fetchWikiImage(title){
+      // Try queries: exact title, title + " element", title + " (element)"
+      const attempts = [title, `${title} element`, `${title} (element)`]
+      for(const q of attempts){
+        try{
+          const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=pageimages&piprop=thumbnail&pithumbsize=600&titles=${encodeURIComponent(q)}`
+          const res = await fetch(url)
+          const data = await res.json()
+          if(data.query && data.query.pages){
+            const pages = Object.values(data.query.pages)
+            for(const p of pages){
+              if(p && p.thumbnail && p.thumbnail.source) return p.thumbnail.source
+            }
+          }
+        }catch(e){/* ignore and try next */}
+      }
+      // Last resort: use Wikimedia search generator to find a page with image
+      try{
+        const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrsearch=${encodeURIComponent(title + ' element')}&gsrlimit=5&prop=pageimages&piprop=thumbnail&pithumbsize=600`
+        const res2 = await fetch(searchUrl)
+        const data2 = await res2.json()
+        if(data2.query && data2.query.pages){
+          const pages = Object.values(data2.query.pages)
+          for(const p of pages){
+            if(p && p.thumbnail && p.thumbnail.source) return p.thumbnail.source
+          }
+        }
+      }catch(e){/* ignore */}
+      return null
+    }
+
+    (async function(){
+      const num = parseInt(qs('el'),10)
+      if(!window.ELEMENTS || !num){
+        document.getElementById('el-title').textContent = 'Element not found'
+        return
+      }
+      const el = ELEMENTS.find(e=>e.number===num)
+      if(!el){
+        document.getElementById('el-title').textContent = 'Element not found'
+        return
+      }
+
+      const imgEl = document.getElementById('el-image')
+      imgEl.alt = el.name
+      document.getElementById('el-title').textContent = `${el.name} (${el.symbol})`
+      document.getElementById('el-meta').textContent = `Atomic number ${el.number} — Atomic mass: ${el.atomicMass || '—'}`
+      document.getElementById('el-desc').textContent = el.summary || 'No description available.'
+
+      // If the element has an explicit non-placeholder image, use it first
+      if(el.image && !el.image.includes('placeholder')){
+        imgEl.src = el.image
+        return
+      }
+
+      // Otherwise try Wikimedia for a better image
+      imgEl.src = 'https://via.placeholder.com/180'
+      const found = await fetchWikiImage(el.name)
+      if(found){
+        imgEl.src = found
+      } else {
+        // try with symbol as fallback
+        const found2 = await fetchWikiImage(el.symbol)
+        if(found2) imgEl.src = found2
+      }
+    })()
+  </script>
+</body>
+</html>
