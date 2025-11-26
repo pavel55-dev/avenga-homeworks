@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the FBI</title>
+</head>
+<body>
+    <header>
+        <h1>About the FBI</h1>
+        <nav> <!-- Here I must update the nav bar and connect the links later when all the other html files are ready-->
+            <ul>
+                <li><a href="../home.html" target="_blank">Home</a></li>
+                <li><a href="../wanted/wanted.html" target="_blank">Most Wanted</a></li>
+                <li><a href="../news/news.html" target="_blank">News</a></li>
+                <li><a href="../what-we-investigate/investigate.html" target="_blank">What We Investigate</a></li>
+                <li><a href="../submit-a-tip/submit.html" target="_blank">Submit a Tip</a></li>
+                <li><a href="../about/about.html">About Us</a></li>
+            </ul>
+        </nav>
+        <form action="/search" method="get">
+            <input type="text" name="query" placeholder="Search..." required>
+            <button type="submit">Search</button>
+        </form>
+    </header>
+        <main>
+            <section>
+                <article>
+                    <h2>History of the FBI</h2>
+                    <p>The Federal Bureau of Investigation (FBI) was established in 1908 as the Bureau of Investigation (BOI). It was later renamed the FBI in 1935. Over the years, the FBI has evolved to address emerging threats and challenges, becoming a premier federal law enforcement agency.</p> <a href="https://www.fbi.gov/history" target="_blank">Read More about History</a>
+                </article>
+                <article>
+                <h3>Our Mission and Priorities</h3>
+                <p>The Federal Bureau of Investigation (FBI) is dedicated to protecting and defending the United States against terrorist and foreign intelligence threats, upholding and enforcing the criminal laws of the United States, and providing leadership and criminal justice services to federal, state, municipal, and international partners.</p> <a href="https://www.fbi.gov/about/mission" target="_blank">Read More about Our Mission</a>
+            </section>
+            </main>
+            <aside>
+                <h3>Contact Us</h3>
+                <form action="/contact" method="post" enctype="multipart/form-data">
+                    <label for="documents">Upload your documents:</label>
+                    <input type="file" id="documents" name="documents" multiple><br><br>
+                    
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                    
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="4" cols="30" placeholder="Write your message here..."></textarea><br><br>
+                    
+                    <button type="submit">Send</button>
+                </form>
+                <h4>FBI Headquarters Location</h4>
+                <p>935 Pennsylvania Avenue NW, Washington, DC 20535, United States</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.001295673585!2d-77.02597868464934!3d38.89511197957062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7b2e8e6b7c1%3A0x2e7b7b7b7b7b7b7b!2sFBI%20Headquarters!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus"
+                    width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </aside>
+            <footer>
+                <p>&copy; 2024 Federal Bureau of Investigation. All rights reserved.</p> 
+            </footer>
+        
+</body>
+</html>

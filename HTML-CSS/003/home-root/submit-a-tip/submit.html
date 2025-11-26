@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit a Tip to the FBI</title>
+</head>
+<body>
+    <header>
+        <h1>Federal Bureau of Investigation</h1>
+        <p>Submit a Tip</p>
+        <hr>
+        <p style="max-width:600px; margin: 20px auto; font-size:1.1em;">
+            <strong>Important:</strong> This tip form is intended strictly for matters related to the FBI. If someone is in immediate danger or requires urgent assistance, please call <strong>911</strong> right away. Submissions through this form are reviewed for investigative purposes and may take time for agents to process. Do not use this form for emergencies.
+        </p>
+    </header>
+    <main>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Your Information</legend>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone"><br><br>
+            </fieldset>
+            <fieldset>
+                <legend>Tip Information</legend>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required><br><br>
+
+                <label for="details">Details:</label><br>
+                <textarea id="details" name="details" rows="6" cols="40" required></textarea><br><br>
+
+                <label for="location">Location (if applicable):</label>
+                <input type="text" id="location" name="location"><br><br>
+            </fieldset>
+            <button type="submit">Submit Tip</button>
+        </form>
+    </main>
+</body>
+</html>
