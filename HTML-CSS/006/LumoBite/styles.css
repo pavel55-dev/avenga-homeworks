@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Poppins, sans-serif;
+  background-color: #f7f7fb;
+  padding-bottom: 90px;
+}
+
+/* Header Flexbox Layout */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 5vw 24px 5vw;
+  margin-bottom: 20px;
+}
+
+.nav-ul {
+  display: flex;
+  gap: 32px;  
+  list-style: none;
+}
+
+/* Hero Section Flexbox Layout */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+}
+.hero-left {
+  flex: 1 1 0;
+}   
+.hero-right {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#primary {
+  color: #ff6b4a;
+}
+#secondary {
+  color: #ffe1d8;
+}
+
+/* Benefits Section Grid Layout */
+.benefit-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 20px 20px 64px 20px
+}
+  
+.benefit-cards > div {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 32px 24px 24px 24px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.benefit-cards > div:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(255,152,0,0.18), 0 2px 12px rgba(0,0,0,0.10);
+}
+
+/* Popular Packs Section Grid Layout */
+.product-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin: 40px 0 0 20px;
+}
+
+/* Testimonials Section Styling */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 64px 0 48px 0;
+  border: #1b1b25 2px solid;
+}
+.testimonials h3 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.footer-test {
+  text-align: center;
+}
+
+
+/* Footer Flexbox Layout */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 5vw 24px 5vw;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1b1b25;
+  color: #f3f3ff;
+}
+.footer-left {
+  flex: 1 1 0;
+}
+.footer-right {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 18px;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 24px 4vw 16px 4vw;
+  }
+  .footer-left, .footer-right {
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+  .footer-right {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+.hero-image {
+  max-width: 100%;
+  height: auto;
+}
+
