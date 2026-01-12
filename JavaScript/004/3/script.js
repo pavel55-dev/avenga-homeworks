@@ -9,6 +9,14 @@ while (true) {
 }
 
 function returnString (array) {
-    return array.join(', ');
+    let result = '';
+    for (let i = 0; i < array.length; i++) {
+        if (i === array.length - 1) {
+            result += array[i];
+        } else {
+            result += array[i] + ', ';
+        }
+    }
+    return result;
 }
 alert(returnString(entries));
