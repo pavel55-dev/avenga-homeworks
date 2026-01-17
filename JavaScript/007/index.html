@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="table-dimensions">
+      <label>
+        Rows
+        <input id="rows" type="number" name="rows" min="1" placeholder="Enter positive number" required />
+      </label>
+      <label>
+        Columns
+        <input id="columns" type="number" name="columns" min="1" placeholder="Enter positive number" required />
+      </label>
+      <button id="generateTable" type="submit">Create table</button>
+    </form>
+    <div id="table-container"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
