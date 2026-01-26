@@ -1,11 +1,15 @@
-export function renderUserList(users, container) {
+export function renderUserList(users, images, container) {
   container.innerHTML = "";
 
   users.forEach((user) => {
+     const imageIndex = user.id % images.length;
+    const userImage = images[imageIndex].url;
+
     const card = document.createElement("div");
     card.className = "user-card";
 
     card.innerHTML = `
+     <img class="user-avatar" src="${userImage}" alt="User photo" />
       <h3>${user.firstname} ${user.lastname}</h3>
       <p>${user.email}</p>
       <p>${user.website}</p>

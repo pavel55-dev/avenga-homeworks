@@ -1,18 +1,13 @@
-import { getUsers } from "./api.js";
+import { getUsers, getImages } from "./api.js";
 import { renderUserList } from "./render.js";
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const usersContainer = document.getElementById("users");
+async function init() {
+  const container = document.getElementById("users");
 
-  if (!usersContainer) {
-    console.error('Element with id="users" not found in index.html');
-    return;
-  }
+  const users = await getUsers();
+  const images = await getImages();
 
-  try {
-    const users = await getUsers();
-    renderUserList(users, usersContainer);
-  } catch (error) {
-    console.error("Error loading users:", error);
-  }
-});
+  renderUserList(users, images, container);
+}
+
+init();
