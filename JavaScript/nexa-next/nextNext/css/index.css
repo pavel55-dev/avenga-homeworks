@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  line-height: 1.5;
+}
+
+/* PAGE LAYOUT */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* GRID */
+.user-container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(10, auto);
+  grid-auto-flow: row;
+  gap: 24px;
+}
+
+.user-container > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* CARD */
+.user-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+}
+
+/* TEXT */
+.user-card h3 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.user-card p {
+  font-weight: 400;
+  color: #475569;
+  font-size: 14px;
+}
+#header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+#h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 0%;
+}
