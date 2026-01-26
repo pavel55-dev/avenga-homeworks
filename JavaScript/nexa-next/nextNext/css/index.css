@@ -64,12 +64,13 @@ body {
 #header {
   text-align: center;
   margin-bottom: 32px;
-}
-#h2 {
-  text-align: center;
   font-size: 32px;
   font-weight: 600;
-  margin-top: 0%;
+  color: #1E40AF;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #E2E8F0;
 }
 
 .user-avatar {
